@@ -75,6 +75,7 @@
 
 const express = require('express')// nao utiliza o ./ pois o express é um pacote e nao um arquivo
 const cors = require('cors')
+const {errors} = require('celebrate')
 const routes = require('./routes') //o ./ é para referenciar a pasta onde esta
 
 
@@ -83,7 +84,7 @@ const app = express()
 app.use(cors({}))
 app.use(express.json()) // Isso aqui esta avisado que antes das requisiçoes esse cara aqui , vai converter todos os JSON em JS
 app.use(routes)
+app.use(errors())
 
 
-
-app.listen(3333)
+module.exports = app;
